@@ -646,15 +646,15 @@ def fitness(x):
 
 def mouse_move(midX,midY):
     pyautogui.moveTo(midX, midY)
-
+    
 # Plotting functions ---------------------------------------------------------------------------------------------------
 def plot_one_box(x, img, color=None, label=None, line_thickness=None):
     # Plots one bounding box on image img
     tl = line_thickness or round(0.002 * (img.shape[0] + img.shape[1]) / 2) + 1  # line thickness
     color = color or [random.randint(0, 255) for _ in range(3)]
     c1, c2 = (int(x[0]), int(x[1])), (int(x[2]), int(x[3]))
-    midX=int(x[2]+x[0])*2-200
-    midY=int(x[3]+x[1])*2.5-700
+    midX=int(x[2]+x[0])*2 -300
+    midY=int(x[3]+x[1])*2 -400
     t1 = threading.Thread(target=mouse_move, args=(midX,midY)) 
     t1.start()
     cv2.rectangle(img, c1, c2, color, thickness=tl)
